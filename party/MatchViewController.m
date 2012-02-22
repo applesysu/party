@@ -13,6 +13,7 @@
 - (void)getMatch:(NSArray *)friendsArray;
 - (void)setHeadImageAndNameLabel;
 - (void)shareToRenren;
+- (void)letLoadingViewHidden:(BOOL)toggle;
 @end
 
 @implementation MatchViewController
@@ -24,6 +25,10 @@
 @synthesize femaleMatchOne = _femaleMatchOne;
 @synthesize nameLabel = _nameLabel;
 @synthesize headPic = _headPic;
+@synthesize loadingImage = _loadingImage;
+@synthesize backButton = _backButton;
+@synthesize shareButton = _shareButton;
+@synthesize otherButton = _otherButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +46,10 @@
     [self.userItem release];
     [_nameLabel release];
     [_headPic release];
+    [_loadingImage release];
+    [_backButton release];
+    [_shareButton release];
+    [_otherButton release];
     [super dealloc];
 }
 
@@ -58,6 +67,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self letLoadingViewHidden:NO];
     [self getFriends];
 }
 
@@ -66,6 +76,10 @@
 
     [self setNameLabel:nil];
     [self setHeadPic:nil];
+    [self setLoadingImage:nil];
+    [self setBackButton:nil];
+    [self setShareButton:nil];
+    [self setOtherButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -111,6 +125,7 @@
     else{
         NSArray *friendsInfo = (NSArray *)(response.rootObject);
         [self getMatch:friendsInfo];
+        [self letLoadingViewHidden:YES];
     }
 	
 }
@@ -172,6 +187,19 @@
         [self.headPic setImage:femaleImage];
         [self.nameLabel setText:[NSString stringWithFormat:@"%@", [_femaleMatchOne objectForKey:@"name"]]];
     }
+}
+
+- (void)letLoadingViewHidden:(BOOL)hidden
+{
+    [self.loadingImage setHidden:hidden];
+    
+    BOOL reversal = (hidden == NO? YES: NO);
+    
+    [self.backButton setHidden:reversal];
+    [self.shareButton setHidden:reversal];
+    [self.otherButton setHidden:reversal];
+    
+    
 }
 
 
