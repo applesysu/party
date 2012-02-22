@@ -174,15 +174,15 @@
 }
 
 #pragma mark - login view
-- (void)letLoginViewHidden:(BOOL)hidden
+- (void)letLoginViewHidden:(BOOL)toggle
 {
-    [self.loginImage setHidden:hidden];
-    [self.loginButton setHidden:hidden];
+    [self.loginImage setHidden:toggle];
+    [self.loginButton setHidden:toggle];
     
-    BOOL reversal = (hidden == NO? YES: NO);
+//    BOOL reversal = (toggle == NO? YES: NO);
     
-    [self.logoutButton setHidden:reversal];
-    [self.matchButton setHidden:reversal];
+    [self.logoutButton setEnabled:toggle];
+    [self.matchButton setEnabled:toggle];
 }
 
 @end

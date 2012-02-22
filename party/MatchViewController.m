@@ -189,9 +189,9 @@
     }
 }
 
-- (void)letLoadingViewHidden:(BOOL)hidden
+- (void)letLoadingViewHidden:(BOOL)toggle
 {
-    if (hidden == YES)
+    if (toggle == YES)
     {
         [UIView animateWithDuration:1.0 
                               delay:1.0 
@@ -200,20 +200,26 @@
                              [self.loadingImage setAlpha:0.0];
                          }
                          completion:^(BOOL finish){
-                             [self.loadingImage setHidden:YES];
+                             [self.loadingImage setHidden:toggle];
                              [self.loadingImage setAlpha:1.0];
+//                             BOOL reversal = (toggle == NO? YES: NO);
+                             
+                             [self.backButton setEnabled:toggle];
+                             [self.shareButton setEnabled:toggle];
+                             [self.otherButton setEnabled:toggle];
                          }];
 
     } else
     {
-        [self.loadingImage setHidden:hidden];
+        [self.loadingImage setHidden:toggle];
+//        BOOL reversal = (toggle == NO? YES: NO);
+        
+        [self.backButton setEnabled:toggle];
+        [self.shareButton setEnabled:toggle];
+        [self.otherButton setEnabled:toggle];
     }
     
-    BOOL reversal = (hidden == NO? YES: NO);
-    
-    [self.backButton setHidden:reversal];
-    [self.shareButton setHidden:reversal];
-    [self.otherButton setHidden:reversal];
+
     
     
 }

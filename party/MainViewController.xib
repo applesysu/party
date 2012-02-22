@@ -37,13 +37,13 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUIImageView" id="402790069">
+					<object class="IBUIImageView" id="316973725">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 460}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="739967164"/>
+						<reference key="NSNextKeyView" ref="1025608397"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -124,7 +124,7 @@
 						<string key="NSFrame">{{116, 207}, {89, 46}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="778608570"/>
+						<reference key="NSNextKeyView" ref="689434932"/>
 						<string key="NSReuseIdentifierKey">_NS:225</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -139,9 +139,9 @@
 						<reference key="IBUIFontDescription" ref="872800145"/>
 						<reference key="IBUIFont" ref="145425241"/>
 					</object>
-					<object class="IBUIImageView" id="739967164">
+					<object class="IBUIImageView" id="1025608397">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrameSize">{320, 460}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -154,7 +154,7 @@
 							<string key="NSResourceName">login.jpg</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="778608570">
+					<object class="IBUIButton" id="689434932">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{111, 343}, {81, 42}}</string>
@@ -179,7 +179,7 @@
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="402790069"/>
+				<reference key="NSNextKeyView" ref="316973725"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -205,7 +205,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">loginImage</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="739967164"/>
+						<reference key="destination" ref="1025608397"/>
 					</object>
 					<int key="connectionID">14</int>
 				</object>
@@ -213,7 +213,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">loginButton</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="778608570"/>
+						<reference key="destination" ref="689434932"/>
 					</object>
 					<int key="connectionID">15</int>
 				</object>
@@ -262,7 +262,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">pressLoginButton:</string>
-						<reference key="source" ref="778608570"/>
+						<reference key="source" ref="689434932"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -281,12 +281,12 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="402790069"/>
+							<reference ref="316973725"/>
 							<reference ref="673204601"/>
 							<reference ref="470384477"/>
 							<reference ref="221652175"/>
-							<reference ref="739967164"/>
-							<reference ref="778608570"/>
+							<reference ref="1025608397"/>
+							<reference ref="689434932"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -321,19 +321,19 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
-						<reference key="object" ref="402790069"/>
+						<reference key="object" ref="316973725"/>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">background</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">11</int>
-						<reference key="object" ref="739967164"/>
+						<reference key="object" ref="1025608397"/>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">loginImage</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="778608570"/>
+						<reference key="object" ref="689434932"/>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">loginButton</string>
 					</object>
@@ -365,11 +365,16 @@
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="pressLoginButton:">id</string>
+						<string key="pressLogoutButton:">id</string>
 						<string key="showMatchView:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="pressLoginButton:">
 							<string key="name">pressLoginButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="pressLogoutButton:">
+							<string key="name">pressLogoutButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showMatchView:">
