@@ -191,7 +191,23 @@
 
 - (void)letLoadingViewHidden:(BOOL)hidden
 {
-    [self.loadingImage setHidden:hidden];
+    if (hidden == YES)
+    {
+        [UIView animateWithDuration:1.0 
+                              delay:1.0 
+                            options:UIViewAnimationOptionCurveEaseInOut 
+                         animations:^{
+                             [self.loadingImage setAlpha:0.0];
+                         }
+                         completion:^(BOOL finish){
+                             [self.loadingImage setHidden:YES];
+                             [self.loadingImage setAlpha:1.0];
+                         }];
+
+    } else
+    {
+        [self.loadingImage setHidden:hidden];
+    }
     
     BOOL reversal = (hidden == NO? YES: NO);
     
