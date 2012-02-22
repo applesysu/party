@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "MatchViewController.h"
 
 @interface MainViewController ()
 - (void)getUserInfo;
@@ -136,15 +135,20 @@
 	[alertView show];
 }
 
-#pragma mark - Show Match View
+#pragma mark - Show Match View and MatchViewControllerDelegate
 
 - (IBAction)showMatchView:(id)sender {
     MatchViewController *matchVC = [[[MatchViewController alloc] initWithNibName:@"MatchViewController" bundle:nil] autorelease];
     matchVC.userItem = self.userItem;
     matchVC.renren = self.renren;
+    matchVC.delegate = self;
     matchVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentModalViewController:matchVC animated:YES];
 }
 
+- (void)matchViewControllerDidFinish:(MatchViewController *)controller
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 @end

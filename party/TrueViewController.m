@@ -13,6 +13,7 @@
 @synthesize delegate =_delegate;
 @synthesize theTrueOne = _theTrueOne;
 @synthesize trueOneHead = _trueOneHead;
+@synthesize trueOneNameLabel = _trueOneNameLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,12 +42,14 @@
     NSData *fetchImageData = [[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:url]] autorelease];
     UIImage *trueImage = [[[UIImage alloc]initWithData:fetchImageData] autorelease];
     [self.trueOneHead setImage:trueImage];
+    [self.trueOneNameLabel setText:[NSString stringWithFormat:@"%@", [_theTrueOne objectForKey:@"name"]]];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
     [self setTrueOneHead:nil];
+    [self setTrueOneNameLabel:nil];
     [super viewDidUnload];
     [self setTheTrueOne:nil];
     // Release any retained subviews of the main view.
@@ -64,6 +67,7 @@
 }
 - (void)dealloc {
     [_trueOneHead release];
+    [_trueOneNameLabel release];
     [super dealloc];
 }
 @end

@@ -11,19 +11,19 @@
 @interface MatchViewController ()
 - (void)getFriends;
 - (void)getMatch:(NSArray *)friendsArray;
-- (void)setHeadImage;
+- (void)setHeadImageAndNameLabel;
 - (void)shareToRenren;
 @end
 
 @implementation MatchViewController
 
+@synthesize delegate = _delegate;
 @synthesize renren = _renren;
 @synthesize userItem = _userItem;
 @synthesize maleMatchOne = _maleMatchOne;
 @synthesize femaleMatchOne = _femaleMatchOne;
-@synthesize testLabel = _testLabel;
-@synthesize maleHead = _maleHead;
-@synthesize femaleHead = _femaleHead;
+@synthesize nameLabel = _nameLabel;
+@synthesize headPic = _headPic;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,9 +39,8 @@
     [self.maleMatchOne release];
     [self.femaleMatchOne release];
     [self.userItem release];
-    [_testLabel release];
-    [_maleHead release];
-    [_femaleHead release];
+    [_nameLabel release];
+    [_headPic release];
     [super dealloc];
 }
 
@@ -64,9 +63,9 @@
 
 - (void)viewDidUnload
 {
-    [self setTestLabel:nil];
-    [self setMaleHead:nil];
-    [self setFemaleHead:nil];
+
+    [self setNameLabel:nil];
+    [self setHeadPic:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -80,6 +79,12 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - back to login view
+- (IBAction)pressBackButton:(id)sender {
+    [self.delegate matchViewControllerDidFinish:self];
+}
+
 
 #pragma mark - RENREN get friends methods
 - (void)getFriends
@@ -146,27 +151,26 @@
         self.femaleMatchOne= askFemale;
     }
     
-    
-    NSLog(@"%@ %@", [_maleMatchOne objectForKey:@"name"], [_femaleMatchOne objectForKey:@"name"]);
-    [self.testLabel setText:[NSString stringWithFormat:@"%@ %@", [_maleMatchOne objectForKey:@"name"], [_femaleMatchOne objectForKey:@"name"]]];
-    [self setHeadImage];
+    [self setHeadImageAndNameLabel];
 }
 
-- (void)setHeadImage
+- (void)setHeadImageAndNameLabel
 {
     if (_userItem.sex == @"0")
     {
         NSString *url = [self.maleMatchOne objectForKey:@"headurl"];
         NSData *fetchImageData = [[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:url]] autorelease];
         UIImage *maleImage = [[[UIImage alloc]initWithData:fetchImageData] autorelease];
-        [self.maleHead setImage:maleImage];
+        [self.headPic setImage:maleImage];
+        [self.nameLabel setText:[NSString stringWithFormat:@"%@", [_maleMatchOne objectForKey:@"name"]]];
     } 
     else
     {
         NSString *url = [self.femaleMatchOne objectForKey:@"headurl"];
         NSData *fetchFemaleImageData = [[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:url]] autorelease];
         UIImage *femaleImage = [[[UIImage alloc]initWithData:fetchFemaleImageData] autorelease];
-        [self.femaleHead setImage:femaleImage];
+        [self.headPic setImage:femaleImage];
+        [self.nameLabel setText:[NSString stringWithFormat:@"%@", [_femaleMatchOne objectForKey:@"name"]]];
     }
 }
 
@@ -175,7 +179,7 @@
 - (void)shareToRenren
 {
     ROPublishPhotoRequestParam *param = [[ROPublishPhotoRequestParam alloc] init];
-    param.imageFile = _femaleHead.image;
+    param.imageFile = _headPic.image;
     param.caption = @"nothing happened";
     [self.renren publishPhoto:param andDelegate:self];
     [param release];
@@ -184,6 +188,7 @@
 - (IBAction)pressShareButton:(id)sender {
     [self shareToRenren];
 }
+
 
 #pragma mark - TureViewController Delegate and Methods
 

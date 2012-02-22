@@ -10,6 +10,14 @@
 
 #import "TrueViewController.h"
 
+@class MatchViewController;
+
+@protocol MatchViewControllerDelegate
+- (void)matchViewControllerDidFinish:(MatchViewController *)controller;
+@end
+
+
+
 @interface MatchViewController : UIViewController <RenrenDelegate, TrueViewControllerDelegate>
 {
     Renren *_renren;
@@ -18,16 +26,19 @@
     NSDictionary *_femaleMatchOne;
 }
 
+@property (assign, nonatomic) IBOutlet id <MatchViewControllerDelegate> delegate;
+
 @property (retain, nonatomic) Renren *renren;
 @property (retain, nonatomic) ROUserResponseItem *userItem;
 @property (retain, nonatomic) NSDictionary *maleMatchOne;
 @property (retain, nonatomic) NSDictionary *femaleMatchOne;
 
-@property (retain, nonatomic) IBOutlet UILabel *testLabel;
-@property (retain, nonatomic) IBOutlet UIImageView *maleHead;
-@property (retain, nonatomic) IBOutlet UIImageView *femaleHead;
+@property (retain, nonatomic) IBOutlet UILabel *nameLabel;
+@property (retain, nonatomic) IBOutlet UIImageView *headPic;
+
 
 - (IBAction)pressShareButton:(id)sender;
+- (IBAction)pressBackButton:(id)sender;
 
 - (IBAction)pressTureButton:(id)sender;
 @end

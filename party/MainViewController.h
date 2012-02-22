@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController <RenrenDelegate>
+#import "MatchViewController.h"
+
+@interface MainViewController : UIViewController <RenrenDelegate, MatchViewControllerDelegate>
 {
     Renren *_renren;
     ROUserResponseItem *_userItem;

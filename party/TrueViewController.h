@@ -24,6 +24,7 @@
 
 @property (retain, nonatomic) NSDictionary* theTrueOne;
 @property (retain, nonatomic) IBOutlet UIImageView *trueOneHead;
+@property (retain, nonatomic) IBOutlet UILabel *trueOneNameLabel;
 
 - (IBAction)finish:(id)sender;
 @end
