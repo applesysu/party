@@ -121,6 +121,13 @@
 {
     if ([response.rootObject isKindOfClass:[ROPublishPhotoResponseItem class]]) {
 //        ROPublishPhotoResponseItem *result = (ROPublishPhotoResponseItem*)response.rootObject;
+        NSString *title = [[NSString alloc] initWithFormat:@"Share Success"];
+        NSString *description = [[NSString alloc] initWithFormat:@"Your date will see it soon!"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+        [alert show];
+        [alert release];
+        [title release];
+        [description release];
     }   
     else{
         NSArray *friendsInfo = (NSArray *)(response.rootObject);
@@ -229,7 +236,12 @@
 - (void)shareToRenren
 {
     ROPublishPhotoRequestParam *param = [[ROPublishPhotoRequestParam alloc] init];
-    param.imageFile = _headPic.image;
+    
+    //get screen
+    CGImageRef screen = UIGetScreenImage();
+    UIImage* image = [UIImage imageWithCGImage:screen];
+    
+    param.imageFile = image;
     param.caption = @"nothing happened";
     [self.renren publishPhoto:param andDelegate:self];
     [param release];
