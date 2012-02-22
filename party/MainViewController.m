@@ -86,7 +86,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - RENREN login methods
+#pragma mark - RENREN login and logout methods
+
+- (IBAction)pressLogoutButton:(id)sender {
+    [[Renren sharedRenren] logout:self];
+    [self letLoginViewHidden:NO];
+}
 
 - (void)pressLoginButton:(id)sender
 {
@@ -137,7 +142,7 @@
 //		outText = [outText stringByAppendingFormat:@"UserID:%@\n Name:%@\n Sex:%@\n Birthday:%@\n HeadURL:%@\n",item.userId,item.name,item.sex,item.brithday,item.headUrl];
 	}
     NSLog(@"%@", self.userItem.name);
-    [self.welcome setText:[NSString stringWithFormat:@"Wellcome, %@",_userItem.name]];
+    [self.welcome setText:[NSString stringWithFormat:@"Welcome, %@",_userItem.name]];
     [self letLoginViewHidden:YES];
 }
 

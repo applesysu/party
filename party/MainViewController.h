@@ -25,7 +25,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *logoutButton;
 @property (retain, nonatomic) IBOutlet UIButton *matchButton;
 
-
+- (IBAction)pressLogoutButton:(id)sender;
 - (IBAction)pressLoginButton:(id)sender;
 - (IBAction)showMatchView:(id)sender;
 
