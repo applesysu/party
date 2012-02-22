@@ -10,6 +10,7 @@
 
 @interface MainViewController ()
 - (void)getUserInfo;
+- (void)letLoginViewHidden:(BOOL)toggle;
 @end
 
 @implementation MainViewController
@@ -17,6 +18,10 @@
 @synthesize renren = _renren;
 @synthesize userItem = _userItem;
 @synthesize welcome = _welcome;
+@synthesize loginImage = _loginImage;
+@synthesize loginButton = _loginButton;
+@synthesize logoutButton = _logoutButton;
+@synthesize matchButton = _matchButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +36,10 @@
 {
     [_welcome release];
     self.renren = nil;
+    [_loginImage release];
+    [_loginButton release];
+    [_logoutButton release];
+    [_matchButton release];
     [super dealloc];
 }
 
@@ -52,13 +61,20 @@
     if ([self.renren isSessionValid])
     {
         [self getUserInfo];
-    }   
+    } else
+    {
+        [self letLoginViewHidden:NO];
+    }
     
 }
 
 - (void)viewDidUnload
 {
     [self setWelcome:nil];
+    [self setLoginImage:nil];
+    [self setLoginButton:nil];
+    [self setLogoutButton:nil];
+    [self setMatchButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -122,6 +138,7 @@
 	}
     NSLog(@"%@", self.userItem.name);
     [self.welcome setText:[NSString stringWithFormat:@"Wellcome, %@",_userItem.name]];
+    [self letLoginViewHidden:YES];
 }
 
 /**
@@ -149,6 +166,18 @@
 - (void)matchViewControllerDidFinish:(MatchViewController *)controller
 {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - login view
+- (void)letLoginViewHidden:(BOOL)hidden
+{
+    [self.loginImage setHidden:hidden];
+    [self.loginButton setHidden:hidden];
+    
+    BOOL reversal = (hidden == NO? YES: NO);
+    
+    [self.logoutButton setHidden:reversal];
+    [self.matchButton setHidden:reversal];
 }
 
 @end

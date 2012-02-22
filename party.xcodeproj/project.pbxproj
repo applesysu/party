@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BF2468F614F2332D0005DA6D /* TrueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2468F414F2332D0005DA6D /* TrueViewController.m */; };
 		BF2468F714F2332D0005DA6D /* TrueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2468F514F2332D0005DA6D /* TrueViewController.xib */; };
+		BF7FAF4F14F4DEDC0099C1BF /* loading.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF7FAF4A14F4DEDC0099C1BF /* loading.jpg */; };
+		BF7FAF5014F4DEDC0099C1BF /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF7FAF4B14F4DEDC0099C1BF /* login.jpg */; };
+		BF7FAF5114F4DEDC0099C1BF /* main.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF7FAF4C14F4DEDC0099C1BF /* main.jpg */; };
+		BF7FAF5214F4DEDC0099C1BF /* match.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF7FAF4D14F4DEDC0099C1BF /* match.jpg */; };
+		BF7FAF5314F4DEDC0099C1BF /* other.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF7FAF4E14F4DEDC0099C1BF /* other.jpg */; };
 		BFEE8EE414F0EF66001E0A64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE8EE314F0EF66001E0A64 /* UIKit.framework */; };
 		BFEE8EE614F0EF66001E0A64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE8EE514F0EF66001E0A64 /* Foundation.framework */; };
 		BFEE8EE814F0EF66001E0A64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE8EE714F0EF66001E0A64 /* CoreGraphics.framework */; };
@@ -96,6 +101,11 @@
 		BF2468F314F2332D0005DA6D /* TrueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrueViewController.h; sourceTree = "<group>"; };
 		BF2468F414F2332D0005DA6D /* TrueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrueViewController.m; sourceTree = "<group>"; };
 		BF2468F514F2332D0005DA6D /* TrueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrueViewController.xib; sourceTree = "<group>"; };
+		BF7FAF4A14F4DEDC0099C1BF /* loading.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loading.jpg; sourceTree = "<group>"; };
+		BF7FAF4B14F4DEDC0099C1BF /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login.jpg; sourceTree = "<group>"; };
+		BF7FAF4C14F4DEDC0099C1BF /* main.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main.jpg; sourceTree = "<group>"; };
+		BF7FAF4D14F4DEDC0099C1BF /* match.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = match.jpg; sourceTree = "<group>"; };
+		BF7FAF4E14F4DEDC0099C1BF /* other.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = other.jpg; sourceTree = "<group>"; };
 		BFEE8EDF14F0EF66001E0A64 /* party.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = party.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEE8EE314F0EF66001E0A64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BFEE8EE514F0EF66001E0A64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -252,6 +262,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF7FAF5514F4DEE20099C1BF /* image */ = {
+			isa = PBXGroup;
+			children = (
+				BF7FAF4A14F4DEDC0099C1BF /* loading.jpg */,
+				BF7FAF4B14F4DEDC0099C1BF /* login.jpg */,
+				BF7FAF4C14F4DEDC0099C1BF /* main.jpg */,
+				BF7FAF4D14F4DEDC0099C1BF /* match.jpg */,
+				BF7FAF4E14F4DEDC0099C1BF /* other.jpg */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		BFEE8ED414F0EF66001E0A64 = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +324,7 @@
 		BFEE8EEA14F0EF66001E0A64 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF7FAF5514F4DEE20099C1BF /* image */,
 				BFEE8EEB14F0EF66001E0A64 /* party-Info.plist */,
 				BFEE8EEC14F0EF66001E0A64 /* InfoPlist.strings */,
 				BFEE8EEF14F0EF66001E0A64 /* main.m */,
@@ -643,6 +666,11 @@
 				BFEE8FFC14F11AE9001E0A64 /* MainViewController.xib in Resources */,
 				BFEE900114F12951001E0A64 /* MatchViewController.xib in Resources */,
 				BF2468F714F2332D0005DA6D /* TrueViewController.xib in Resources */,
+				BF7FAF4F14F4DEDC0099C1BF /* loading.jpg in Resources */,
+				BF7FAF5014F4DEDC0099C1BF /* login.jpg in Resources */,
+				BF7FAF5114F4DEDC0099C1BF /* main.jpg in Resources */,
+				BF7FAF5214F4DEDC0099C1BF /* match.jpg in Resources */,
+				BF7FAF5314F4DEDC0099C1BF /* other.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

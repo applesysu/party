@@ -19,7 +19,17 @@
 @property (retain, nonatomic) Renren *renren;
 @property (retain, nonatomic) ROUserResponseItem *userItem;
 @property (retain, nonatomic) IBOutlet UILabel *welcome;
+
+@property (retain, nonatomic) IBOutlet UIImageView *loginImage;
+@property (retain, nonatomic) IBOutlet UIButton *loginButton;
+@property (retain, nonatomic) IBOutlet UIButton *logoutButton;
+@property (retain, nonatomic) IBOutlet UIButton *matchButton;
+
+
 - (IBAction)pressLoginButton:(id)sender;
 - (IBAction)showMatchView:(id)sender;
+
+
+
 
 @end
