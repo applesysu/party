@@ -36,6 +36,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
 @property (retain, nonatomic) IBOutlet UIImageView *headPic;
 
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (retain, nonatomic) IBOutlet UIImageView *loadingImage;
 @property (retain, nonatomic) IBOutlet UIButton *backButton;
 @property (retain, nonatomic) IBOutlet UIButton *shareButton;

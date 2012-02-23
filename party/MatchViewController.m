@@ -25,6 +25,7 @@
 @synthesize femaleMatchOne = _femaleMatchOne;
 @synthesize nameLabel = _nameLabel;
 @synthesize headPic = _headPic;
+@synthesize loadingIndicator = _loadingIndicator;
 @synthesize loadingImage = _loadingImage;
 @synthesize backButton = _backButton;
 @synthesize shareButton = _shareButton;
@@ -50,6 +51,7 @@
     [_backButton release];
     [_shareButton release];
     [_otherButton release];
+    [_loadingIndicator release];
     [super dealloc];
 }
 
@@ -80,6 +82,7 @@
     [self setBackButton:nil];
     [self setShareButton:nil];
     [self setOtherButton:nil];
+    [self setLoadingIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -200,6 +203,7 @@
 {
     if (toggle == YES)
     {
+        [self.loadingIndicator stopAnimating];
         [UIView animateWithDuration:1.0 
                               delay:1.0 
                             options:UIViewAnimationOptionCurveEaseInOut 
@@ -209,8 +213,7 @@
                          completion:^(BOOL finish){
                              [self.loadingImage setHidden:toggle];
                              [self.loadingImage setAlpha:1.0];
-//                             BOOL reversal = (toggle == NO? YES: NO);
-                             
+
                              [self.backButton setEnabled:toggle];
                              [self.shareButton setEnabled:toggle];
                              [self.otherButton setEnabled:toggle];
@@ -218,9 +221,8 @@
 
     } else
     {
+        [self.loadingIndicator startAnimating];
         [self.loadingImage setHidden:toggle];
-//        BOOL reversal = (toggle == NO? YES: NO);
-        
         [self.backButton setEnabled:toggle];
         [self.shareButton setEnabled:toggle];
         [self.otherButton setEnabled:toggle];
