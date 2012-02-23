@@ -264,6 +264,7 @@
 - (IBAction)pressTureButton:(id)sender {
     TrueViewController *controller = [[[TrueViewController alloc]initWithNibName:@"TrueViewController" bundle:nil]autorelease];
     controller.delegate = self;
+    controller.renren = self.renren;
     controller.modalTransitionStyle = UIModalTransitionStylePartialCurl;
     if (_userItem.sex == @"1")
     {
